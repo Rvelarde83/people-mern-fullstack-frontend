@@ -1,7 +1,17 @@
+import { useParams } from "react-router"
+
 export default function Show(props){
+    const { id }= useParams();
+    const people = props.people
+    const person = people.find((person) => person._id===id)
 
     return(
-        <h1>Show</h1>
+        <div className="person">
+             <h1>{person.name} </h1>
+             <h2>{person.title}</h2>
+             <img src={person.image} alt={ person.name} />
+        </div>
+       
         
     )
 }
