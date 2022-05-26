@@ -12,10 +12,7 @@ export default function Index(props) {
 
     // handleChange function for form
     const handleChange = (event) => {
-        setNewForm((prevState) => ({
-            ...prevState,
-            [event.target.name]: event.target.value,
-        }))
+        setNewForm({ ...newForm, [event.target.name]: event.target.value })
     }
 
     // handle submit function for form
@@ -29,7 +26,7 @@ export default function Index(props) {
         })
     }
 
-// loaded function
+    // loaded function
     const loaded = () => {
         return props.people.map((person) => (
             <div key={person._id} className="person">
@@ -70,7 +67,6 @@ export default function Index(props) {
                     onChange={handleChange}
                 />
                 <input type="submit" value="Create Person" />
-
             </form>
             {props.people ? loaded() : loading()}
         </section>

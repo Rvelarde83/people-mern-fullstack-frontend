@@ -6,7 +6,7 @@ import Show from "../pages/Show"
 
 function Main(props) {
     const [people, setPeople] = useState(null)
-    const URL = "https://fullstack-mern-backend-rvr.herokuapp.com/people"
+    const URL = "https://fullstack-mern-backend-rvr.herokuapp.com/people/"
 
     const getPeople = async () => {
         const response = await fetch(URL)
@@ -29,7 +29,7 @@ function Main(props) {
         await fetch(URL + id, {
             method: "PUT",
             headers: {
-                "Content-Type": "Applications/json",
+                "Content-Type": "Application/json",
             },
             body:JSON.stringify(person),
         })
@@ -57,7 +57,8 @@ function Main(props) {
                 <Show
                     people={people}
                     updatePeople={updatePeople}
-                    deletePeople={deletePeople}/>
+                    deletePeople={deletePeople}
+/>
                 }
                 />
             </Routes>
